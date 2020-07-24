@@ -43,7 +43,7 @@ class CliInstances:
                     self.customer_details = self.client(firstname="Max", lastname="Mustermann",
                                                         gender="m", birth="19.04.1995",
                                                         address="Postweg 5", postcode="53111", city="Bonn")
-                    self.cli_sign_name = "Meier".upper()
+                    self.cli_sign_name = self.customer_details.lastname.upper()
                     return self.customer_details
 
                 elif command == "bank":
@@ -64,7 +64,7 @@ class CliInstances:
                             self.bank_account_details = self.bank(customer_details=self.customer_details,
                                                                   bank_name=self.bank_details,
                                                                   balance=4000)
-                            self.cli_sign_bank = f"Dkb".upper()
+                            self.cli_sign_bank = self.bank_details.show_name().upper()
                             return self.bank_account_details
                         else:
                             print("\n|> Bank exisitert nicht!\n")
